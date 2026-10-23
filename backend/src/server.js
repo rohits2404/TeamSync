@@ -22,6 +22,13 @@ import taskRoutes from "./routes/task.route.js";
 const app = express();
 const BASE_PATH = process.env.BASE_PATH;
 
+app.use(
+    cors({
+        origin: process.env.FRONTEND_ORIGIN,
+        credentials: true,
+    }),
+);
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
@@ -37,15 +44,18 @@ app.use(
     }),
 );
 
+app.use((req, res, next) => {
+    if (req.session && !req.session.regenerate) {
+        req.session.regenerate = (cb) => cb();
+    }
+    if (req.session && !req.session.save) {
+        req.session.save = (cb) => cb();
+    }
+    next();
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(
-    cors({
-        origin: process.env.FRONTEND_ORIGIN,
-        credentials: true,
-    }),
-);
 
 app.get(
     `/`,

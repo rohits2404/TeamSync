@@ -32,13 +32,10 @@ const userSchema = new mongoose.Schema(
     },
 );
 
-userSchema.pre("save", async function (next) {
-    if (this.isModified("password")) {
-        if (this.password) {
-            this.password = await hashValue(this.password);
-        }
+userSchema.pre("save", async function () {
+    if (this.isModified("password") && this.password) {
+        this.password = await hashValue(this.password);
     }
-    next();
 });
 
 userSchema.methods.omitPassword = function () {
