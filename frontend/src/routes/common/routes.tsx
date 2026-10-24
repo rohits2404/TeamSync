@@ -6,6 +6,7 @@ import WorkspaceDashboard from "@/pages/workspace/Dashboard";
 import Tasks from "@/pages/workspace/Tasks";
 import Members from "@/pages/workspace/Members";
 import Settings from "@/pages/workspace/Settings";
+import ProjectDetails from "@/pages/workspace/ProjectDetails";
 
 export const authenticationRoutePaths = [
     { path: AUTH_ROUTES.SIGN_IN, element: <Login /> },
@@ -21,4 +22,5 @@ export const protectedRoutePaths = [
     { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
     { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
     { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
+    { path: PROTECTED_ROUTES.PROJECT_DETAILS, element: <ProjectDetails /> },
 ];
