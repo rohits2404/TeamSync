@@ -1,5 +1,5 @@
 import Login from "@/pages/auth/Login";
-import { AUTH_ROUTES, PROTECTED_ROUTES } from "./routePaths";
+import { AUTH_ROUTES, BASE_ROUTE, PROTECTED_ROUTES } from "./routePaths";
 import Register from "@/pages/auth/Register";
 import GoogleOAuthFailure from "@/pages/auth/GoogleOAuthFailure";
 import WorkspaceDashboard from "@/pages/workspace/Dashboard";
@@ -7,6 +7,7 @@ import Tasks from "@/pages/workspace/Tasks";
 import Members from "@/pages/workspace/Members";
 import Settings from "@/pages/workspace/Settings";
 import ProjectDetails from "@/pages/workspace/ProjectDetails";
+import InviteUser from "@/pages/invite/InviteUser";
 
 export const authenticationRoutePaths = [
     { path: AUTH_ROUTES.SIGN_IN, element: <Login /> },
@@ -23,4 +24,8 @@ export const protectedRoutePaths = [
     { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
     { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
     { path: PROTECTED_ROUTES.PROJECT_DETAILS, element: <ProjectDetails /> },
+];
+
+export const baseRoutePaths = [
+    { path: BASE_ROUTE.INVITE_URL, element: <InviteUser /> },
 ];
