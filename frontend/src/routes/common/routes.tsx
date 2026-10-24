@@ -5,6 +5,7 @@ import GoogleOAuthFailure from "@/pages/auth/GoogleOAuthFailure";
 import WorkspaceDashboard from "@/pages/workspace/Dashboard";
 import Tasks from "@/pages/workspace/Tasks";
 import Members from "@/pages/workspace/Members";
+import Settings from "@/pages/workspace/Settings";
 
 export const authenticationRoutePaths = [
     { path: AUTH_ROUTES.SIGN_IN, element: <Login /> },
@@ -19,4 +20,5 @@ export const protectedRoutePaths = [
     { path: PROTECTED_ROUTES.WORKSPACE, element: <WorkspaceDashboard /> },
     { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
     { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
+    { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
 ];
